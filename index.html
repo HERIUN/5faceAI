@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -60,13 +62,13 @@
 		<section class="section">
 			<h1 class="title">인공지능 5행관상 테스트</h1>
 			<h2 class="subtitle">나는 5행중 어떤 상일까?</h2>
-			<h3 class="sr-only">
+			<h3 class="sr-only" align="center">
 				대표 5행 연예인 사진 데이터로 학습한 인공지능
 			</h3>
-			<h4 class="sr-only">
+			<h4 class="sr-only" align="center">
 				본 서비스는 Google의 인공지능 teachable machine 2.0을 활용하였습니다.
 			</h4>
-			<p class="sr-only">
+			<p class="sr-only" align="center">
 				회원가입도 필요없이 화면에서 바로 확인해보세요! 사진 데이터는 그 어디에도 전송되지
 				않습니다.
 			</p>
@@ -97,7 +99,7 @@
 				<img class="file-upload-image" id="face-image" src="#" alt="your image" />
 				<div id="loading" class="animated bounce">
 					<div class="spinner-border" role="status">
-						<span class="sr-only">Loading...</span>
+						<span class="sr-only">.</span>
 					</div>
 					<p class="text-center">AI가 당신의 관상을 분석중입니다.</p>
 				</div>
@@ -165,6 +167,7 @@
 
 					reader.onload = function (e) {
 						$('.image-upload-wrap').hide();
+						$('#loading').show();
 						$('.file-upload-image').attr('src', e.target.result);
 						$('.file-upload-content').show();
 						$('.image-title').html(input.files[0].name);
@@ -172,6 +175,7 @@
 					reader.readAsDataURL(input.files[0]);
 					init().then(() => {
 						predict();
+						$('#loading').hide();
 					});
 				} else {
 					removeUpload();
@@ -220,7 +224,7 @@
 				switch (prediction[0].className) {
 					case 'fire':
 						resultMessage = '화(火)';
-						resultExplain = '화를잘낸다. 섬세하다. 털이없다.';
+						resultExplain = '화를잘낸다. 섬세하다. 털이없다. 붉은 얼굴. 예술가적 기질';
 						resultCeleb =
 							'강호동, 고수, 공유, 서세원 ,조인성, 김성령, 박보검, 용준형, 장미란, 박규리, 신민아';
 						break;
@@ -238,12 +242,12 @@
 						break;
 					case 'water':
 						resultMessage = '수(水)';
-						resultExplain = '이성에 관심은 많지만 인기가 없다. 명랑하고 지껄이는 걸 좋아한다. ';
+						resultExplain = '이성에 관심은 많지만 인기가 없다. 명랑하고 지껄이는 걸 좋아한다. 기억력이 좋음.';
 						resultCeleb = '정형돈, 고현정, 문근영, 조세호';
 						break;
 					case 'metal':
 						resultMessage = '금(金)';
-						resultExplain = '원칙에 벗어나지 않는다. 불의를 참지 못한다.';
+						resultExplain = '원칙에 벗어나지 않는다. 불의를 참지 못한다. 솔선수범';
 						resultCeleb =
 							'박정희, 김우빈, 전지현, 이병헌, 권상우, 정몽구, 박경림, 김진수';
 						break;
