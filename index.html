@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+			crossorigin="anonymous"
+		/>
+
+		<title>인공지능 5행 관상테스트</title>
+		<meta name="title" content="인공지능 5행 관상테스트" />
+		<link rel="stylesheet" href="style.css" />
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-603e331444bb011b"></script>
+
+	</head>
+
+	<body>
+		<nav class="p-3 navbar navbar-expand-lg navbar-light nav-distance">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="https://fiveface.site/">5행 관상테스트</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="#"
+								>5행 관상 테스트
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a
+								class="nav-link"
+								id="yotube-top-link"
+								href="https://blog.naver.com/ehdrndd"
+								>개발자 블로그</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<section class="section">
+			<h1 class="title">인공지능 5행관상 테스트</h1>
+			<h2 class="subtitle">나는 5행중 어떤 상일까?</h2>
+			<h3 class="sr-only">
+				대표 5행 연예인 사진 데이터로 학습한 인공지능
+			</h3>
+			<h4 class="sr-only">
+				본 서비스는 Google의 인공지능 teachable machine 2.0을 활용하였습니다.
+			</h4>
+			<p class="sr-only">
+				회원가입도 필요없이 화면에서 바로 확인해보세요! 사진 데이터는 그 어디에도 전송되지
+				않습니다.
+			</p>
+			<img src="img/five-element.jpg" alt="" class="five-icon" />
+		</section>
+		<section class="youtube">
+			<div class="container mt-5 youtube-cover d-flex flex-row-reverse">
+				<a href="https://blog.naver.com/ehdrndd" class="youtube-link">개발자 블로그</a>
+			</div>
+		</section>
+
+		<div class="container file-upload">
+			<div class="image-upload-wrap">
+				<input
+					class="file-upload-input"
+					type="file"
+					onchange="readURL(this);"
+					accept="image/*"
+				/>
+				<div class="drag-text">
+					<img src="img/upload.svg" class="mt-5 pt-5 upload" style="width: 20%;" />
+					<h3 class="mb-5 pb-5 pt-4 upload-text">
+						사진을 올려놓거나 눌러서 업로드하세요!
+					</h3>
+				</div>
+			</div>
+			<div class="file-upload-content">
+				<img class="file-upload-image" id="face-image" src="#" alt="your image" />
+				<div id="loading" class="animated bounce">
+					<div class="spinner-border" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+					<p class="text-center">AI가 당신의 관상을 분석중입니다.</p>
+				</div>
+				<p class="result-message"></p>
+				<div id="label-container" class="d-flex flex-column justify-content-around"></div>
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox"></div>
+            
+				<div class="pt-3 image-title-wrap">
+					<button
+						type="button p-2"
+						class="try-again-btn"
+						onclick="window.location.reload();"
+					>
+						<span class="try-again-text">다른 사진으로 재시도</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div id="webcam-container"></div>
+		<div id="disqus_thread"></div>
+		<script>
+			(function () {
+				// DON'T EDIT BELOW THIS LINE
+				var d = document,
+					s = d.createElement('script');
+				s.src = 'https://heriun.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+			})();
+		</script>
+		<noscript
+			>Please enable JavaScript to view the
+			<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
+		>
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+			integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+			integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			class="jsbin"
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+		></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+		<script>
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						$('.image-upload-wrap').hide();
+						$('.file-upload-image').attr('src', e.target.result);
+						$('.file-upload-content').show();
+						$('.image-title').html(input.files[0].name);
+					};
+					reader.readAsDataURL(input.files[0]);
+					init().then(() => {
+						predict();
+					});
+				} else {
+					removeUpload();
+				}
+			}
+
+			function removeUpload() {
+				$('.file-upload-input').replaceWith($('.file-upload-input').clone());
+				$('.file-upload-content').hide();
+				$('.image-upload-wrap').show();
+			}
+			$('.image-upload-wrap').bind('dragover', function () {
+				$('.image-upload-wrap').addClass('image-dropping');
+			});
+			$('.image-upload-wrap').bind('dragleave', function () {
+				$('.image-upload-wrap').removeClass('image-dropping');
+			});
+		</script>
+		<script type="text/javascript">
+			const URL = 'https://teachablemachine.withgoogle.com/models/lM4E7O5bJ/';
+
+			let model, webcam, labelContainer, maxPredictions;
+
+			// Load the image model and setup the webcam
+			async function init() {
+				const modelURL = URL + 'model.json';
+				const metadataURL = URL + 'metadata.json';
+				model = await tmImage.load(modelURL, metadataURL);
+				maxPredictions = model.getTotalClasses();
+				labelContainer = document.getElementById('label-container');
+            	for (let i = 0; i < maxPredictions; i++) {
+					var element = document.createElement("div")
+					element.classList.add("d-flex");
+					labelContainer.appendChild(element);
+            }
+			}
+
+			// run the webcam image through the image model
+			async function predict() {
+				// predict can take in an image, video or canvas html element
+				var image = document.getElementById('face-image');
+				const prediction = await model.predict(image, false);
+				prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+				console.log(prediction[0].className);
+				var resultMessage, resultExplain, resultCeleb;
+				switch (prediction[0].className) {
+					case 'fire':
+						resultMessage = '화(火)';
+						resultExplain = '화를잘낸다. 섬세하다. 털이없다.';
+						resultCeleb =
+							'강호동, 고수, 공유, 서세원 ,조인성, 김성령, 박보검, 용준형, 장미란, 박규리, 신민아';
+						break;
+					case 'wood':
+						resultMessage = '목(木)';
+						resultExplain = '살이 잘 찌지 않는다. 키가 크고, 사지가 길다.';
+						resultCeleb =
+							'송강호, 이종석, 이황, 김수현, 이광수, 스티브 잡스, 오바마, 최지우';
+						break;
+					case 'ground':
+						resultMessage = '토(土)';
+						resultExplain = '말이 없고, 조용하며, 얼굴표정에 변화가없다. 큰 부자가 많다.';
+						resultCeleb =
+							'백일섭, 최불암, 장동건, 김혜수, 백종원, 고창석, 김구, 소희, 서현';
+						break;
+					case 'water':
+						resultMessage = '수(水)';
+						resultExplain = '이성에 관심은 많지만 인기가 없다. 명랑하고 지껄이는 걸 좋아한다. ';
+						resultCeleb = '정형돈, 고현정, 문근영, 조세호';
+						break;
+					case 'metal':
+						resultMessage = '금(金)';
+						resultExplain = '원칙에 벗어나지 않는다. 불의를 참지 못한다.';
+						resultCeleb =
+							'박정희, 김우빈, 전지현, 이병헌, 권상우, 정몽구, 박경림, 김진수';
+						break;
+					default:
+						resultMessage = '알수없음';
+						resultExplain = '';
+						resultCeleb = '';
+				}
+				var title =
+					"<div class='" +
+					prediction[0].className +
+					"-animal-title'>" +
+					resultMessage +
+					'</div>';
+				var explain = "<div class='animal-explain pt-2'>" + resultExplain + '</div>';
+				var celeb =
+					"<div class='" +
+					prediction[0].className +
+					"-animal-celeb pt-2 pb-2'>" +
+					resultCeleb +
+					'</div>';
+				$('.result-message').html(title + explain + celeb);
+				var barWidth;
+				for (let i = 0; i < maxPredictions; i++) {
+					if (prediction[i].probability.toFixed(2) > 0.1) {
+						barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + '%';
+					} else if (prediction[i].probability.toFixed(2) >= 0.01) {
+						barWidth = '4%';
+					} else {
+						barWidth = '2%';
+					}
+					var labelTitle;
+					switch (prediction[i].className) {
+						case 'fire':
+							labelTitle = '화(火)';
+							break;
+						case 'wood':
+							labelTitle = '목(木)';
+							break;
+						case 'ground':
+							labelTitle = '토(土)';
+							break;
+						case 'water':
+							labelTitle = '수(水)';
+							break;
+						case 'metal':
+							labelTitle = '금(金)';
+							break;
+						default:
+							labelTitle = '알수없음';
+					}
+					var label =
+						"<div class='animal-label d-flex align-items-center'>" +
+						labelTitle +
+						'</div>';
+					var bar =
+						"<div class='bar-container position-relative container'><div class='" +
+						prediction[i].className +
+						"-box'></div><div class='d-flex justify-content-center align-items-center " +
+						prediction[i].className +
+						"-bar' style='width: " +
+						barWidth +
+						"'><span class='d-block percent-text'>" +
+						Math.round(prediction[i].probability.toFixed(2) * 100) +
+						'%</span></div></div>';
+					labelContainer.childNodes[i].innerHTML = label + bar;
+				}
+			}
+		</script>
+	</body>
+</html>
